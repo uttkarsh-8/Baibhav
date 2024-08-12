@@ -6,11 +6,13 @@ import com.moretorque.service.VehicleService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/vehicles")
+@PreAuthorize("isAuthenticated()")
 @Validated
 public class VehicleController {
     private final VehicleService vehicleService;
