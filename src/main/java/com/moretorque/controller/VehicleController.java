@@ -27,7 +27,8 @@ public class VehicleController {
 
     @PostMapping
     public ResponseEntity<Vehicle> createVehicle(@Valid @RequestBody Vehicle vehicle) {
-        return ResponseEntity.ok(vehicleService.createVehicle(vehicle));
+        Vehicle createdVehicle = vehicleService.createVehicle(vehicle);
+        return ResponseEntity.ok(createdVehicle);
     }
 
     @GetMapping("/{vin}")
